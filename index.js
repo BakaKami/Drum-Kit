@@ -52,16 +52,30 @@ function buttonAnimation(currentKey) {
   }, 100);
 }
 
-for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
-  // detect button press
-  document.querySelectorAll(".drum")[i].addEventListener("click", function () {
-    var buttonKey = this.innerHTML;
-    makeSound(buttonKey);
-    buttonAnimation(buttonKey);
-  });
-}
+// for (var i = 0; i < document.querySelectorAll(".drum").length; i++) {
+//   // detect button press
+//   document.querySelectorAll(".drum")[i].addEventListener("click", function () {
+//     var buttonKey = this.innerHTML;
+//     makeSound(buttonKey);
+//     buttonAnimation(buttonKey);
+//   });
+// }
 
-document.addEventListener("keydown", function (event) {
+// document.addEventListener("keydown", function (event) {
+//   // detect keyboard press
+//   var buttonKey = event.key;
+//   makeSound(buttonKey);
+//   buttonAnimation(buttonKey);
+// });
+
+$(".drum").click(function () {
+  // detect button press
+  var buttonKey = this.innerHTML;
+  makeSound(buttonKey);
+  buttonAnimation(buttonKey);
+});
+
+$("body").keypress(function (event) {
   // detect keyboard press
   var buttonKey = event.key;
   makeSound(buttonKey);
